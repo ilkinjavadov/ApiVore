@@ -15,3 +15,6 @@ AI-Powered API Abuse Scanner — IDOR, Rate Limiting & More.
 git clone https://github.com/yourusername/apivore.git
 cd apivore
 pip install -r requirements.txt
+
+
+## Usage
