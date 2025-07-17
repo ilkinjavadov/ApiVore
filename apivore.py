@@ -1,1 +1,36 @@
+import argparse
+import json
+from core import parser, idor, ratelimit
+
+
+def main():
+    parser_args = argparse.ArgumentParser(description="Apivore - API Abuse Scanner")
+    parser_args.add_argument('--openapi', help='Path to OpenAPI / Swagger file', required=True)
+    parser_args.add_argument('--bearer', help='Bearer token for auth')
+    parser_args.add_argument('--output', help='Output file path', default='output/report.json')
+    args = parser_args.parse_args()
+
+    print("[*] Parsing API spec...")
+    endpoints = parser.load_endpoints(args.openapi)
+
+    print(f"[*] {len(endpoints)} endpoints loaded.")
+
+    print("[*] Running IDOR tests...")
+    idor_results = idor.scan(endpoints, args.bearer)
+
+    print("[*] Running Rate Limit tests...")
+    rate_results = ratelimit.scan(endpoints, args.bearer)
+
+    final_report = {
+        "idor": idor_results,
+        "rate_limit": rate_results
+    }
+
+    with open(args.output, 'w') as f:
+        json.dump(final_report, f, indent=4)
+    print(f"[+] Done. Report written to {args.output}")
+
+
+if __name__ == "__main__":
+    main()
 
