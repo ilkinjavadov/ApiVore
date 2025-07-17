@@ -4,6 +4,11 @@
 
 ## Apivore
 
+
+<p align="center">
+  <img src="/examples/apivore.png" alt="XRecon Logo" width="250" />
+</p>
+
 Apivore is an advanced, modular API abuse scanner enhanced with AI support for API security testing.  
 It automatically tests APIs based on OpenAPI/Swagger specifications, detecting IDOR vulnerabilities, rate limiting issues, and provides AI-powered analysis.
 
