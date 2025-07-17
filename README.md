@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="/examples/apivore.png" alt="XRecon Logo" width="250" />
+  <img src="/examples/apivore.png" alt="ApiVore Logo" width="250" />
 </p>
 
 Apivore is an advanced, modular API abuse scanner enhanced with AI support for API security testing.  
